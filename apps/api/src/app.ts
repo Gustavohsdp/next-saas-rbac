@@ -10,9 +10,9 @@ import {
   ZodTypeProvider,
 } from 'fastify-type-provider-zod'
 
-import { authenticateWithPassword } from './http/auth/authenticate-with-password'
-import { createAccount } from './http/auth/create-account'
-import { getProfile } from './http/auth/get-profile'
+import { authenticateWithPassword } from './http/routes/auth/authenticate-with-password'
+import { createAccount } from './http/routes/auth/create-account'
+import { getProfile } from './http/routes/auth/get-profile'
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
 
