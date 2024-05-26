@@ -1,4 +1,5 @@
 import cors from '@fastify/cors'
+import fastifyJwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
 import fastify from 'fastify'
@@ -9,6 +10,7 @@ import {
   ZodTypeProvider,
 } from 'fastify-type-provider-zod'
 
+import { authenticateWithPassword } from './http/auth/authenticate-with-password'
 import { createAccount } from './http/auth/create-account'
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -32,8 +34,13 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
 
+app.register(fastifyJwt, {
+  secret: 'my-jwt-secret',
+})
+
 app.register(cors, {
   origin: true,
 })
 
 app.register(createAccount)
+app.register(authenticateWithPassword)
