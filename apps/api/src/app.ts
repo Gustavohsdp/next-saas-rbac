@@ -12,6 +12,7 @@ import {
 
 import { authenticateWithPassword } from './http/auth/authenticate-with-password'
 import { createAccount } from './http/auth/create-account'
+import { getProfile } from './http/auth/get-profile'
 
 export const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -44,3 +45,4 @@ app.register(cors, {
 
 app.register(createAccount)
 app.register(authenticateWithPassword)
+app.register(getProfile)
