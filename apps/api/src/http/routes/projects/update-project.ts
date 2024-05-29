@@ -13,7 +13,7 @@ export async function updateProject(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .delete(
+    .patch(
       '/organizations/:slug/projects/:projectId',
       {
         schema: {
