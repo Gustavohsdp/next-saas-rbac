@@ -19,6 +19,7 @@ import { getProfile } from './http/routes/auth/get-profile'
 import { requestPasswordRecover } from './http/routes/auth/request-password-recover'
 import { resetPassword } from './http/routes/auth/reset-password'
 import { createInvite } from './http/routes/invites/create-invite'
+import { getInvite } from './http/routes/invites/get-invite'
 import { getMembers } from './http/routes/members/get-member'
 import { removeMember } from './http/routes/members/remove-member'
 import { updateMembers } from './http/routes/members/update-member'
@@ -97,3 +98,4 @@ app.register(getMembers)
 app.register(updateMembers)
 app.register(removeMember)
 app.register(createInvite)
+app.register(getInvite)
